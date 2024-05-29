@@ -4,6 +4,9 @@
 @version        1.0.1
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
+@license        MIT
+@homepageURL    https://github.com/jrom99/gmail-dark-theme
+@supportURL     https://github.com/jrom99/gmail-dark-theme/issues
 @preprocessor   default
 
 @var color dt-on-surface "Text on surface" #e3e3e3
