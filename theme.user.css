@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme - mai. de 2024
 @namespace      github.com/openstyles/stylus
-@version        1.0.2
+@version        1.0.3
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -17,11 +17,9 @@
 @var color dt-on-background "Text on background" #e3e3e3
 
 ==/UserStyle== */
-
 /* TODO: ICONS: fix colors */
 /* TODO: ICONS: add remaining https://icon-sets.iconify.design/?query=inbox */
 /* TODO: INBOX TOP: add support to dropdown item filter */
-/* TODO: ICONS: icons for top bar (hamburger menu, settings, help... */
 /* TODO: INBOX MIDDLE: separate rules for read and unread items */
 /* TODO: READER: separate reader rsvp rules */
 /* TODO: READER: separate reader reply suggestions rules */
@@ -451,15 +449,14 @@
     }
 
     /* SIDEBAR LEFT */
+    .bhZ.bym.baA,
+    .bhZ.bjB {
+        background-color: var(--dt-surface-container-low);
+    }
     .nM {
         .byl .TK .TO.nZ,
         .TK .TO.ol {
             background-color: var(--dt-secondary-container);
-        }
-
-        .bhZ.bym.baA,
-        .bhZ.bjB {
-            background-color: var(--dt-surface-container-low);
         }
 
         .byl .TK .TO.nZ > .aHS-bnt .n0,
