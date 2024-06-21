@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme
 @namespace      github.com/openstyles/stylus
-@version        1.1.2
+@version        1.1.3
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -331,10 +331,15 @@
 
     /* READER */
     .nH.iY {
-        background-color: var(--dt-surface) !important;
+        background-color: var(--dt-surface);
 
+        table,
+        tbody {
+            background-color: var(--dt-surface);
+        }
 
-        div[style*="background-color:"] {
+        div[style*="background-color:"],
+        table[style*="background-color:"] {
             background-color: var(--dt-surface) !important;
         }
 
@@ -344,6 +349,8 @@
 
         .ha > .hP,
         .hx .gD,
+        .hx,
+        .hx td,
         .ac2 {
             color: var(--dt-on-background);
         }
@@ -414,10 +421,6 @@
             color: var(--dt-on-surface-variant);
         }
 
-        .hx {
-            color: var(--dt-on-background);
-        }
-
         /* signature */
         .hx div[style*="color:"],
         .hx font[style*="color:"],
@@ -450,12 +453,12 @@
 
         /* READER ATTACHMENTS */
         .gmail_chip.gmail_drive_chip {
-            background-color: var(--dt-surface-container) !important;
-            border-color: var(--dt-outline-container) !important;
+            background-color: var(--dt-surface-container);
+            border-color: var(--dt-outline-container);
         }
 
         .gmail_chip.gmail_drive_chip > a {
-            color: var(--dt-on-surface) !important;
+            color: var(--dt-on-surface);
         }
         .aSG {
             background-color: var(--dt-background);
