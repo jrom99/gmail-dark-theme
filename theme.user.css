@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme
 @namespace      github.com/openstyles/stylus
-@version        1.1.5
+@version        1.1.6
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -370,7 +370,8 @@
         }
 
         div[style*="background-color:"],
-        table[style*="background-color:"] {
+        table[style*="background-color:"],
+        td[bgcolor] {
             background-color: var(--dt-surface) !important;
         }
 
@@ -383,7 +384,7 @@
         .hx,
         .hx td,
         .ac2 {
-            color: var(--dt-on-background);
+            color: var(--dt-on-background) !important;
         }
 
         .aRo,
@@ -456,6 +457,7 @@
         .hx div[style*="color:"],
         .hx font[style*="color:"],
         .hx span[style*="color:"],
+        .hx p[style*="color:"],
         .hx .gmail_signature p[style*="color:"],
         .hx font[color] {
             color: var(--dt-on-background) !important;
