@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme
 @namespace      github.com/openstyles/stylus
-@version        1.1.6
+@version        1.1.7
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -31,6 +31,7 @@
         --dt-surface-tint: #4a4e53;
         --dt-surface-container-high: #282a2c;
         --dt-surface-container-low: #1b1b1b;
+        --dt-surface-variant: #444746;
         --dt-surface: #131314;
         --dt-surface-container: #1e1f20;
         --dt-secondary-container: #004a77;
@@ -149,10 +150,87 @@
         background-color: var(--dt-surface-container-low);
     }
 
-    .gb_Qa svg,
-    .gb_Ra svg,
-    .gb_qa svg {
-        color: var(--dt-on-surface-variant);
+    header {
+        .gb_5d svg,
+        .gb_Zc svg,
+        .gb_Fc svg {
+            color: var(--dt-on-surface-variant);
+        }
+
+        /* SEARCH BAR */
+        form[role="search"] {
+            &.gb_Md.gb_ie,
+            &.aJf,
+            .aRp,
+            .gssb_e,
+            .gssb_m {
+                background-color: var(--dt-surface-container-high);
+            }
+
+            .gssb_e {
+                border-top-color: var(--dt-surface-variant);
+            }
+
+            .gssb_l {
+                background-color: var(--dt-surface-variant);
+            }
+
+            .H2 {
+                background-color: var(--dt-surface);
+            }
+
+            .H2:hover {
+                background-color: var(--dt-surface-bright);
+            }
+
+            .aqc .H2 {
+                color: var(--dt-on-surface-variant);
+                border-color: var(--dt-outline);
+            }
+
+            input::placeholder {
+                color: var(--dt-on-surface) !important;
+            }
+
+            input {
+                color: var(--dt-on-surface) !important;
+            }
+
+            &.aJf svg {
+                color: var(--dt-on-surface-variant);
+            }
+
+            .gb_0d.gb_ve button svg {
+                color: var(--dt-on-surface-variant);
+            }
+
+            .aSP {
+                border-top-color: var(--dt-outline-variant);
+            }
+
+            .asor.asor_i5 {
+                background-image: var(--dt-icon-clock-baseline);
+                background-position: 13px 8px;
+                /* image is built */
+                background-size: 16px;
+            }
+
+            .gstq_c {
+                color: var(--dt-on-surface-secondary);
+            }
+
+            .gssb_m {
+                color: var(--dt-on-surface);
+            }
+
+            .nH .qp .aJh::placeholder {
+                color: var(--dt-on-surface);
+            }
+
+            .nH .qp .aJh {
+                color: var(--dt-on-surface);
+            }
+        }
     }
 
     .gb_Ea {
@@ -729,64 +807,6 @@
     .bAw.cfg .brC-aT5-a0t-Jw:not(.brC-aMv-bta):not(.brC-aMv-au0),
     .bAw.bcf .brC-aT5-aOt-Jw:not(.brC-aMv-bta):not(.brC-aMv-auO) {
         background-color: transparent;
-    }
-
-    /* SEARCH BAR */
-    form.aJf,
-    .gb_0d.gb_ve,
-    .aRp,
-    .gssb_m,
-    .gb_1d.gb_we,
-    .gssb_e {
-        background-color: var(--dt-surface-container-high);
-    }
-
-    .H2 {
-        background-color: var(--dt-surface);
-    }
-
-    .H2:hover {
-        background-color: var(--dt-surface-bright);
-    }
-
-    .aqc .H2 {
-        color: var(--dt-on-surface-variant);
-        border-color: var(--dt-outline);
-    }
-
-    form.aJf svg {
-        color: var(--dt-on-surface-variant);
-    }
-
-    .gb_0d.gb_ve button svg {
-        color: var(--dt-on-surface-variant);
-    }
-
-    .aSP {
-        border-top-color: var(--dt-outline-variant);
-    }
-
-    .asor.asor_i5 {
-        background-image: var(--dt-icon-clock-baseline);
-        background-position: 13px 8px;
-        /* image is built */
-        background-size: 16px;
-    }
-
-    .gstq_c {
-        color: var(--dt-on-surface-secondary);
-    }
-
-    .gssb_m {
-        color: var(--dt-on-surface);
-    }
-
-    .nH .qp .aJh::placeholder {
-        color: var(--dt-on-surface);
-    }
-
-    .nH .qp .aJh {
-        color: var(--dt-on-surface);
     }
 
     /* search filter poupu */
