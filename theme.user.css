@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme
 @namespace      github.com/openstyles/stylus
-@version        1.1.8
+@version        1.1.9
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -24,7 +24,6 @@
 /* TODO: SEARCH BAR: add label icon for search suggestion */
 /* TODO: SEARCH BAR: add looking glass icon for search suggestion */
 /* TODO: SEARCH BAR: fix list item hover color */
-/* TODO: SEARCH BAR: fix active background color */
 @-moz-document url-prefix("https://mail.google.com") {
     :root {
         --dt-surface-bright: #37393b;
@@ -449,6 +448,7 @@
         }
 
         div[style*="background-color:"],
+        div[style*="background:"],
         table[style*="background-color:"],
         span[style*="background:"],
         td[bgcolor] {
