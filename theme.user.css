@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme
 @namespace      github.com/openstyles/stylus
-@version        1.1.9
+@version        1.1.10
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -18,7 +18,6 @@
 /* TODO: READER: separate reader rsvp rules */
 /* TODO: READER: separate reader reply suggestions rules */
 /* TODO: SIDEBAR LEFT: separate rules for top and bottom sections */
-/* TODO: SIDEBAR RIGHT: fix open/close button */
 /* TODO: POPUPS: fix list item hover */
 /* TODO: POPUPS: fix move to e-mail */
 /* TODO: SEARCH BAR: add label icon for search suggestion */
@@ -242,172 +241,175 @@
         background-color: var(--dt-surface);
     }
 
-    .Dj,
-    .h0 {
-        color: var(--dt-on-surface);
-    }
+    #\:4 {
+        .Dj,
+        .h0 {
+            color: var(--dt-on-surface);
+        }
 
-    .asd,
-    .J-N {
-        color: var(--dt-on-surface-variant);
-    }
+        .asd,
+        .J-N {
+            color: var(--dt-on-surface-variant);
+        }
 
-    .dt {
-        color: var(--dt-on-background);
-    }
+        .dt {
+            color: var(--dt-on-background);
+        }
 
-    .kQ9Vzb,
-    .asa .kQ9Vzb {
-        color: var(--dt-on-surface);
-    }
+        .kQ9Vzb,
+        .asa .kQ9Vzb {
+            color: var(--dt-on-surface);
+        }
 
-    .tQ7uhd {
-        background-image: var(--dt-icon-drafts-baseline);
-    }
+        .tQ7uhd {
+            background-image: var(--dt-icon-drafts-baseline);
+        }
 
-    .bzn .ar6 {
-        background-image: var(--dt-icon-arrow-back-baseline);
-    }
+        .bzn .ar6 {
+            background-image: var(--dt-icon-arrow-back-baseline);
+        }
 
-    .bzn .ar8 {
-        background-image: var(--dt-icon-archive-baseline);
-    }
+        .bzn .ar8 {
+            background-image: var(--dt-icon-archive-baseline);
+        }
 
-    .bzn .asl {
-        background-image: var(--dt-icon-report-baseline);
-    }
+        .bzn .asl {
+            background-image: var(--dt-icon-report-baseline);
+        }
 
-    .bzn .ar9 {
-        background-image: var(--dt-icon-delete-baseline);
-    }
+        .bzn .ar9 {
+            background-image: var(--dt-icon-delete-baseline);
+        }
 
-    .bzn .bAO {
-        background-image: var(--dt-icon-drafts-baseline);
-    }
+        .bzn .bAO {
+            background-image: var(--dt-icon-drafts-baseline);
+        }
 
-    .bzn .brW {
-        background-image: var(--dt-icon-schedule-baseline);
-    }
+        .bzn .brW {
+            background-image: var(--dt-icon-schedule-baseline);
+        }
 
-    .bzn .Vj {
-        background-image: var(--dt-icon-add-task-baseline);
-    }
+        .bzn .Vj {
+            background-image: var(--dt-icon-add-task-baseline);
+        }
 
-    .bzn .ase {
-        background-image: var(--dt-icon-drive-file-move-outline-baseline);
-    }
+        .bzn .ase {
+            background-image: var(--dt-icon-drive-file-move-outline-baseline);
+        }
 
-    .bzn .asb {
-        background-image: var(--dt-icon-label-baseline);
-    }
+        .bzn .asb {
+            background-image: var(--dt-icon-label-baseline);
+        }
 
-    .aqJ .amI,
-    .adg .adj {
-        background-image: var(--dt-icon-chevron-left-baseline);
-    }
+        .aqJ .amI,
+        .adg .adj {
+            background-image: var(--dt-icon-chevron-left-baseline);
+        }
 
-    .aqJ .amJ,
-    .adg .adk {
-        background-image: var(--dt-icon-chevron-right-baseline);
-    }
+        .aqJ .amJ,
+        .adg .adk {
+            background-image: var(--dt-icon-chevron-right-baseline);
+        }
 
-    .bzn .bjy {
-        background-image: var(--dt-icon-more-vert-baseline);
-    }
+        .bzn .bjy {
+            background-image: var(--dt-icon-more-vert-baseline);
+        }
 
-    .bzn .asf {
-        background-image: var(--dt-icon-refresh-baseline);
-    }
-    .bzn .G-asx {
-        background-image: var(--dt-icon-arrow-drop-down-baseline);
-    }
+        .bzn .asf {
+            background-image: var(--dt-icon-refresh-baseline);
+        }
+        .bzn .G-asx {
+            background-image: var(--dt-icon-arrow-drop-down-baseline);
+        }
 
-    .bzn .G-tF .T-Jo {
-        background-image: var(--dt-icon-checkbox-outline-blank-baseline);
+        .bzn .G-tF .T-Jo {
+            background-image: var(--dt-icon-checkbox-outline-blank-baseline);
+        }
     }
 
     /* INBOX MIDDLE */
-    .TD,
-    .r4,
-    .alO {
-        background-color: var(--dt-surface);
-    }
+    #\:1 {
+        .TD,
+        .r4,
+        .alO {
+            background-color: var(--dt-surface);
+        }
 
-    .yO {
-        background-color: var(--dt-surface);
-    }
+        .yO {
+            background-color: var(--dt-surface);
+        }
 
-    .zE,
-    .Ze {
-        color: var(--dt-on-surface);
-        background-color: var(--dt-surface-bright);
-    }
+        .zE,
+        .Ze {
+            color: var(--dt-on-surface);
+            background-color: var(--dt-surface-bright);
+        }
 
-    .yO {
-        color: var(--dt-on-surface);
-    }
+        .yO {
+            color: var(--dt-on-surface);
+        }
 
-    .bx0,
-    .y2,
-    .Zt,
-    .g6,
-    .hI .g3,
-    .brg {
-        color: var(--dt-on-surface-secondary);
-    }
-    .bzO {
-        color: var(--dt-on-secondary-container);
-    }
+        .bx0,
+        .y2,
+        .Zt,
+        .g6,
+        .hI .g3,
+        .brg {
+            color: var(--dt-on-surface-secondary);
+        }
+        .bzO {
+            color: var(--dt-on-secondary-container);
+        }
 
-    .yO > .xW,
-    .brc {
-        color: var(--dt-on-surface);
-    }
+        .yO > .xW,
+        .brc {
+            color: var(--dt-on-surface);
+        }
 
-    .xY > .T-Jo {
-        background-image: var(--dt-icon-checkbox-outline-blank-baseline);
-    }
+        .xY > .T-Jo {
+            background-image: var(--dt-icon-checkbox-outline-blank-baseline);
+        }
 
-    .xY > .T-Jo-Jp {
-        background-image: var(--dt-icon-checkbox-baseline);
-    }
+        .xY > .T-Jo-Jp {
+            background-image: var(--dt-icon-checkbox-baseline);
+        }
 
-    td.oZ-x3::before {
-        background-image: var(--dt-icon-drag-indicator-variant);
-    }
+        td.oZ-x3::before {
+            background-image: var(--dt-icon-drag-indicator-variant);
+        }
 
-    td.apU > .T-KT.aXw::before {
-        background-image: var(--dt-icon-star-baseline);
-    }
+        td.apU > .T-KT.aXw::before {
+            background-image: var(--dt-icon-star-baseline);
+        }
 
-    .brq {
-        background-image: var(--dt-icon-archive-baseline);
-    }
+        .brq {
+            background-image: var(--dt-icon-archive-baseline);
+        }
 
-    .bru {
-        background-image: var(--dt-icon-delete-baseline);
-    }
+        .bru {
+            background-image: var(--dt-icon-delete-baseline);
+        }
 
-    .brr {
-        background-image: var(--dt-icon-drafts-baseline);
-    }
+        .brr {
+            background-image: var(--dt-icon-drafts-baseline);
+        }
 
-    .brv {
-        background-image: var(--dt-icon-schedule-baseline);
-    }
+        .brv {
+            background-image: var(--dt-icon-schedule-baseline);
+        }
 
-    .SHFPQe {
-        background-image: var(--dt-icon-mark-email-unread-baseline);
-    }
+        .SHFPQe {
+            background-image: var(--dt-icon-mark-email-unread-baseline);
+        }
 
-    .xL {
-        background-image: var(--dt-icon-today-baseline);
-    }
+        .xL {
+            background-image: var(--dt-icon-today-baseline);
+        }
 
-    .yE {
-        background-image: var(--dt-icon-attachment-baseline);
+        .yE {
+            background-image: var(--dt-icon-attachment-baseline);
+        }
     }
-
     /* INBOX BOTTOM */
     .aeJ,
     .aC2,
@@ -803,9 +805,32 @@
 
 
     /* SIDEBAR RIGHT */
-    .bAw.cfg .brC-aT5-a0t-Jw:not(.brC-aMv-bta):not(.brC-aMv-au0),
-    .bAw.bcf .brC-aT5-aOt-Jw:not(.brC-aMv-bta):not(.brC-aMv-auO) {
-        background-color: transparent;
+    .nH {
+        .bAw.cfg .brC-aT5-a0t-Jw:not(.brC-aMv-bta):not(.brC-aMv-au0),
+        .bAw.bcf .brC-aT5-aOt-Jw:not(.brC-aMv-bta):not(.brC-aMv-auO) {
+            background-color: transparent;
+        }
+        #qJTzr > div:nth-child(3) {
+            /* install complements button */
+            background-image: var(--dt-icon-add-large-baseline) !important;
+        }
+
+        /* open/close button */
+        .brC-dA-I-Jw {
+            &:not(.brC-aMv-bta):not(.brC-aMv-auO) .brC-dA-I .aT5-aOt-I-JX {
+                fill: var(--dt-on-background);
+            }
+            .brC-dA-I.aT5-aOt-I-Jp .aT5-aOt-I-JX-atM {
+                background-color: var(--dt-surface-bright);
+            }
+
+            .brC-dA-I.aT5-aOt-I-Jp.aT5-aOt-I-JW .aT5-aOt-I-JX-atM,
+            .aT5-aOt-I-JO .aT5-aOt-I-JX-atM,
+            .aT5-aOt-I-JO.aT5-aOt-I-JW .aT5-aOt-I-JX-atM,
+            .brC-dA-I.aT5-aOt-I-Jp.aT5-aOt-I-JO .aT5-aOt-I-JX-atM {
+                background-color: var(--dt-surface-tint);
+            }
+        }
     }
 
     /* search filter poupu */
