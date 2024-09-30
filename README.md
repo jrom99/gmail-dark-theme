@@ -5,7 +5,7 @@ GMail built-in dark theme doesn't affect the inbox reader. This is a custom styl
 ## Installation
 
 1. Install [Stylus for Google Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne?hl=en) or [Stylus for Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/) extension to enable user styles
-2. Open the ./theme.user.css file
+2. Open the [theme.user.css](./theme.user.css) file
 3. Click on the "raw" option
 4. You will be prompted to a screen where you can install the stylesheet on your browser
 
