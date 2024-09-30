@@ -1,6 +1,6 @@
 # Gmail Dark Theme
 
-GMail built-in dark theme doesn't affect the inbox reader. This is a custom stylesheet (user style) to apply over the default "Light" theme.
+Gmail built-in dark theme doesn't affect the inbox reader. This is a custom stylesheet (user style) to apply over the default "Light" theme.
 
 ## Installation
 
@@ -12,6 +12,8 @@ GMail built-in dark theme doesn't affect the inbox reader. This is a custom styl
 ## Acknowledgements
 
 The icons are from [iconify](https://icon-sets.iconify.design/)
+
+The colors arefrom Drive's dark theme.
 
 ## Alternatives
 
