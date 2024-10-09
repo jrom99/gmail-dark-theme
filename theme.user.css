@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme
 @namespace      github.com/openstyles/stylus
-@version        1.1.11
+@version        1.1.12
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -18,8 +18,6 @@
 /* TODO: READER: separate reader rsvp rules */
 /* TODO: READER: separate reader reply suggestions rules */
 /* TODO: SIDEBAR LEFT: separate rules for top and bottom sections */
-/* TODO: POPUPS: fix list item hover */
-/* TODO: POPUPS: fix move to e-mail */
 /* TODO: SEARCH BAR: add label icon for search suggestion */
 /* TODO: SEARCH BAR: add looking glass icon for search suggestion */
 /* TODO: SEARCH BAR: fix list item hover color */
@@ -151,18 +149,19 @@
     }
 
     header {
-        .gb_5d svg,
-        .gb_Zc svg,
-        .gb_Fc svg,
-        &.gb_Fa svg {
+        /* top icons (css for each icon) */
+        div.gb_Jc svg,
+        svg.t7,
+        svg.Xy,
+        svg.gb_E {
             color: var(--dt-on-surface-variant);
         }
 
         /* logo */
-        a.gb_ae.gb_Ec {
+        a[href="#inbox"] {
             width: 109px;
 
-            img.gb_Od {
+            img {
                 content: var(--dt-gmail-logo);
                 width: 30px !important;
             }
@@ -887,27 +886,44 @@
         color: var(--dt-on-surface);
     }
 
-    /* COMPOSE MAIL */
-    /* POPUPS */
-    .J-M {
-        background-color: var(--dt-surface-container);
-    }
-
-    /* move to popup */
-    .J-JK {
+    /* POPUP: MARK EMAIL AS, MOVE EMAIL TO */
+    .agd.J-M[aria-haspopup="true"][role="menu"] {
         color: var(--dt-on-surface);
-    }
+        background-color: var(--dt-surface);
 
-    .agd .J-M-JJ input {
-        background-color: var(--dt-surface-container);
-        color: var(--dt-on-surface);
-    }
+        [role^="menuitem"] {
+            color: var(--dt-on-surface);
+        }
 
-    .agd .J-M-JJ input::placeholder {
-        color: var(--dt-on-surface-variant);
-    }
+        [role^="menuitem"]:hover,
+        .J-N-JT,
+        .J-JK-JT,
+        .J-LC-JT {
+            background-color: var(--dt-surface-variant);
+            div {
+                color: var(--dt-on-surface);
+            }
+        }
 
-    .A0 {
-        background-image: var(--dt-icon-search-variant);
+        .J-LC-Jo {
+            background-image: var(--dt-icon-checkbox-outline-blank-variant);
+        }
+
+        [aria-checked="true"] .J-LC-Jo {
+            background-image: var(--dt-icon-checkbox-outline-variant);
+        }
+
+        .A0 {
+            background-image: var(--dt-icon-search-variant);
+        }
+
+        input {
+            background-color: var(--dt-surface);
+            color: var(--dt-on-surface);
+        }
+
+        input::placeholder {
+            color: var(--dt-on-surface-variant);
+        }
     }
 }
