@@ -11,7 +11,7 @@ Gmail built-in dark theme doesn't affect the inbox reader. This is a custom styl
 
 ## Acknowledgements
 
-Icons from [iconify](https://icon-sets.iconify.design/)
+Material design icons from [iconify](https://icon-sets.iconify.design/)
 
 Colors from Google Drive's dark theme.
 
