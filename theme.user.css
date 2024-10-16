@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme
 @namespace      github.com/openstyles/stylus
-@version        1.1.13
+@version        1.1.14
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -227,7 +227,8 @@
         /* INBOX TOP */
         #\:4 {
             /* item count */
-            .Dj {
+            .Dj,
+            .h0 {
                 color: var(--dt-on-surface);
             }
 
@@ -287,12 +288,14 @@
     #\:1 {
         .TD,
         .r4,
-        .alO {
+        .alO,
+        .iY,
+        .yO,
+        .aC2,
+        .aC3 {
             background-color: var(--dt-surface);
         }
-        .yO {
-            background-color: var(--dt-surface);
-        }
+
         .zE,
         .Ze {
             color: var(--dt-on-surface);
@@ -357,22 +360,50 @@
         background-color: var(--dt-neutral-container);
     }
 
-    /* READER */
-    .nH.iY {
+    .byY {
         background-color: var(--dt-surface);
-        table,
-        tbody,
-        .nr {
+        color: var(--dt-on-surface);
+
+        .ha > .hP {
+            color: var(--dt-on-surface);
+        }
+    }
+
+    /* READER */
+    .adn[data-message-id] {
+        color: var(--dt-on-surface);
+        background-color: var(--dt-surface);
+
+        /* sender information */
+        table.gJ {
             background-color: var(--dt-surface);
+            .gD {
+                color: var(--dt-on-surface);
+            }
+            .ajy > .ajz {
+                background-image: var(--dt-icon-arrow-drop-down-variant);
+            }
         }
-        :where(div,
-        table,
-        span,
-        td):where([style*="background-color:"],
-        [style*="background:"],
-        [bgcolor]) {
-            background-color: var(--dt-surface) !important;
+
+        /* e-mail contents */
+        .a3s {
+            table,
+            tbody,
+            td,
+            .nr {
+                background-color: var(--dt-surface);
+            }
+
+            :is(table,
+            tbody,
+            td)[style*="background:white"] {
+                background-color: var(--dt-surface) !important;
+            }
+            span[style*="color:black"] {
+                color: var(--dt-on-surface) !important;
+            }
         }
+
         .ha > .hP,
         .hx .gD,
         .hx,
@@ -402,9 +433,7 @@
         .Tl.T-I-ax7 {
             color: var(--dt-on-surface-variant);
         }
-        .ajy > .ajz {
-            background-image: var(--dt-icon-arrow-drop-down-variant);
-        }
+
         .im {
             color: var(--dt-on-background);
             font-weight: bold;
@@ -468,20 +497,29 @@
         .aSG {
             background-color: var(--dt-background);
         }
-        /* restore composer inside reader */
-        .aoP.HM {
-            form table,
-            form tbody,
-            .IZ tbody {
-                background-color: white;
-            }
-            /* .ahe::before {} */
-            .ahe::after {
-                background-color: var(--dt-surface);
-            }
-            .I5 {
-                overflow: hidden
-            }
+    }
+
+    /* COMPOSER */
+    [data-compose-id] > [role="presentation"] {
+        form table,
+        form tbody {
+            background-color: white;
+        }
+
+        .I5 {
+            overflow: hidden
+        }
+
+        /* the composer bottom region's round borders are actually pseudo-elements */
+        /* using background-clip on the region hides the font toolbar */
+        /* we can then recreate the borders and reapply the content's background */
+        .btC {
+            background-color: white;
+            border-radius: 0 0 16px 16px;
+        }
+
+        .ahe::after {
+            background-color: var(--dt-surface);
         }
     }
 
