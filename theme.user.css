@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme
 @namespace      github.com/openstyles/stylus
-@version        1.1.14
+@version        1.1.15
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -14,8 +14,6 @@
 /* TODO: ICONS: add remaining https://icon-sets.iconify.design/?query=inbox */
 /* TODO: READER COMPOSER: add rules targeting icons */
 /* TODO: SIDEBAR LEFT: arrow right hover */
-/* TODO: INBOX MIDDLE: add support for selected mail color */
-/* TODO: INBOX MIDDLE: separate rules for read and unread items */
 /* TODO: READER: separate reader rsvp rules */
 /* TODO: READER: separate reader reply suggestions rules */
 /* TODO: SEARCH BAR: add label icon for search suggestion */
@@ -23,24 +21,68 @@
 /* TODO: SEARCH BAR: fix list item hover color */
 @-moz-document url-prefix("https://mail.google.com") {
     :root {
-        --dt-surface-bright: #37393b;
-        --dt-surface-tint: #242424;
-        --dt-surface-bright-tint: #4a4e53;
-        --dt-surface-container-high: #282a2c;
-        --dt-surface-container-low: #1b1b1b;
+        --dt-on-background: #e3e3e3;
+        --dt-on-background-secondary: #ababab;
+        --dt-background: #131314;
+
+        --dt-on-surface: #e3e3e3;
+        --dt-inverse-surface: #e3e3e3;
+        --dt-on-surface-secondary: #ababab;
+        --dt-on-surface-variant: #c4c7c5;
+        --dt-inverse-on-surface: #303030;
         --dt-surface-variant: #444746;
         --dt-surface: #131314;
+        --dt-surface-tint: #d1e1ff;
+
+        --dt-surface-container-lowest: #0e0e0e;
+        --dt-surface-container-low: #1b1b1b;
         --dt-surface-container: #1e1f20;
-        --dt-secondary-container: #004a77;
-        --dt-neutral-container: #474747;
-        --dt-outline: #9e918f;
-        --dt-outline-variant: #444746;
+        --dt-surface-container-high: #282a2c;
+        --dt-surface-container-highest: #333537;
+
+        --dt-surface-dim: #131314;
+        --dt-surface-bright: #37393b;
+
+        --dt-on-primary-container: #d3e3fd;
+        --dt-primary: #a8c7fa;
+        --dt-primary-outline: #a8c7fa;
+        --dt-primary-container: #0842a0;
+        --dt-on-primary: #062e6f;
+
         --dt-on-secondary-container: #c2e7ff;
-        --dt-on-surface: #e3e3e3;
-        --dt-on-surface-variant: #c4c7c5;
-        --dt-on-surface-secondary: #ababab;
+        --dt-secondary: #7fcfff;
+        --dt-secondary-outline: #7fcfff;
+        --dt-secondary-container: #004a77;
+        --dt-on-secondary: #035;
+
+        --dt-on-tertiary-container: #c4eed0;
+        --dt-tertiary: #6dd58c;
+        --dt-tertiary-outline: #6dd58c;
+        --dt-tertiary-container: #0f5223;
+        --dt-on-tertiary: #0f5223;
+
         --dt-on-neutral-container: #e3e3e3;
-        --dt-on-background: #e3e3e3;
+        --dt-neutral: #ababab;
+        --dt-neutral-outline: #ababab;
+        --dt-neutral-container: #474747;
+        --dt-on-neutral: #1f1f1f;
+
+        --dt-on-warning-container: #fff2b4;
+        --dt-warning: #fcbd00;
+        --dt-warning-outline: #fff2b4;
+        --dt-warning-container: #4d2600;
+        --dt-on-warning: #1f1f1f;
+
+        --dt-on-error-container: #f9dedc;
+        --dt-error: #f2b8b5;
+        --dt-error-outline: #f2b8b5;
+        --dt-error-container: #8c1d18;
+        --dt-on-error: #601410;
+
+        --dt-disabled: rgba(227, 227, 227, 0.12);
+        --dt-on-disabled: rgba(227, 227, 227, 0.38);
+        --dt-outline: #8e918f;
+        --dt-outline-variant: #444746;
 
         /* LOGO */
         --dt-gmail-logo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1.33em' height='1em' viewBox='0 0 256 193'%3E%3Cpath fill='%234285f4' d='M58.182 192.05V93.14L27.507 65.077L0 49.504v125.091c0 9.658 7.825 17.455 17.455 17.455z'/%3E%3Cpath fill='%2334a853' d='M197.818 192.05h40.727c9.659 0 17.455-7.826 17.455-17.455V49.505l-31.156 17.837l-27.026 25.798z'/%3E%3Cpath fill='%23ea4335' d='m58.182 93.14l-4.174-38.647l4.174-36.989L128 69.868l69.818-52.364l4.669 34.992l-4.669 40.644L128 145.504z'/%3E%3Cpath fill='%23fbbc04' d='M197.818 17.504V93.14L256 49.504V26.231c0-21.585-24.64-33.89-41.89-20.945z'/%3E%3Cpath fill='%23c5221f' d='m0 49.504l26.759 20.07L58.182 93.14V17.504L41.89 5.286C24.61-7.66 0 4.646 0 26.23z'/%3E%3C/svg%3E");
@@ -109,6 +151,7 @@
                 vertical-align: middle;
             }
         }
+
         /* SEARCH BAR */
         form[role="search"] {
             &.gb_Md.gb_ie,
@@ -169,12 +212,25 @@
         background-color: var(--dt-surface-container-low);
 
         /* COMPOSE BUTTON */
-        .z0 > .L3 {
+        > div:first-child [role="button"] {
             background-color: var(--dt-surface-bright);
             color: var(--dt-on-surface);
+            position: relative;
 
-            &:hover {
-                background-color: var(--dt-surface-bright-tint);
+            /* Drive uses an <i/> inside the button to do the hover effect */
+            &::after {
+                transition: background-color .25s, opacity .25s;
+                opacity: 0;
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: var(--dt-surface);
+            }
+
+            &:hover::after {
+                background-color: var(--dt-surface-tint);
+                opacity: .12;
             }
         }
 
@@ -212,6 +268,11 @@
         .TO.NQ:not(.nZ) {
             background-color: var(--dt-surface-bright);
         }
+
+        /* hovered arrow */
+        .TO .aii:hover {
+            background-color: var(--dt-surface-bright);
+        }
     }
 
     /* INBOX */
@@ -227,27 +288,177 @@
         /* INBOX TOP */
         #\:4 {
             /* item count */
-            .Dj,
-            .h0 {
-                color: var(--dt-on-surface);
+            span {
+                color: var(--dt-on-surface-variant);
             }
 
-            .dt {
-                color: var(--dt-on-background);
-            }
-            .kQ9Vzb,
-            .asa .kQ9Vzb {
+            /* mark as unread icon */
+            [role="button"] svg {
                 color: var(--dt-on-surface);
             }
         }
 
         /* INBOX BOTTOM */
         #\:2 {
-            .l9,
-            .ma .mb,
-            .ae3 .l6,
-            .l8 {
+            div,
+            a,
+            span {
                 color: var(--dt-on-surface-variant);
+            }
+        }
+
+        /* INBOX MIDDLE */
+        /* MESSAGE LIST */
+        #\:1 .bGI[role="main"] table[role="grid"] {
+            [role="row"] {
+                background-color: var(--dt-surface);
+
+                /* sender and subject */
+                color: var(--dt-on-surface);
+
+                /* mail beginning preview, attachment name, thread length, date, preview separator */
+                .y2,
+                .brc,
+                .bx0,
+                .xW,
+                .Zt {
+                    color: var(--dt-on-surface-variant);
+                }
+
+                /* unread */
+                &.zE {
+                    background-color: var(--dt-surface-variant);
+
+                    /* date */
+                    .xW {
+                        color: var(--dt-on-surface);
+                    }
+                }
+
+                /* selected */
+                &:has([role="checkbox"][aria-checked="true"]) {
+                    background-color: var(--dt-secondary-container);
+
+                    /* sender and subject */
+                    color: var(--dt-on-surface);
+
+                    /* mail beginning preview, attachment name, thread length, date, preview separator */
+                    .y2,
+                    .brc,
+                    .bx0,
+                    .xW,
+                    .Zt {
+                        color: var(--dt-on-secondary-container);
+                    }
+
+                    /* selected+unread > date */
+                    &.zE .xW {
+                        color: var(--dt-on-surface);
+                    }
+                }
+            }
+        }
+
+        /* MESSAGE CHAIN READER */
+        #\:1 :not(.bGI)[role="main"] .iY {
+            color: var(--dt-on-surface);
+            background-color: var(--dt-surface);
+
+            /* subject header */
+            .byY {
+                h2 {
+                    color: var(--dt-on-surface);
+                }
+
+                .aau {
+                    background-color: var(--dt-warning);
+                    color: var(--dt-on-warning);
+                }
+
+                /* buttons */
+                .bHJ {
+                    svg {
+                        color: var(--dt-on-surface);
+                    }
+
+                    button:hover {
+                        background-color: color-mix(in srgb, var(--dt-on-surface) 8%, transparent);
+                    }
+
+                    button:active {
+                        background-color: color-mix(in srgb, var(--dt-on-surface) 12%, transparent);
+                    }
+                }
+            }
+
+            /* sender information */
+            table.gJ {
+                /* sender name */
+                .gD {
+                    color: var(--dt-on-surface);
+                }
+
+                /* sender mail, recipient, date, mail beginning preview */
+                .go,
+                .hb,
+                .g3,
+                .g6 {
+                    color: var(--dt-on-surface-variant);
+                }
+            }
+
+            /* e-mail contents */
+            .a3s {
+                background-color: var(--dt-surface);
+                color: var(--dt-on-surface);
+
+                /* override element-level css */
+                :is(table,
+                tbody,
+                td,
+                span,
+                b,
+                div):is([style*="background:white"],
+                [style*="background-color:rgb(255,255,255)"],
+                [style*="background-color:#ffffff"],
+                [style*="background:#fff"]) {
+                    background-color: var(--dt-surface) !important;
+                }
+
+                :is(table,
+                tbody,
+                td,
+                span,
+                b,
+                div):is([style*="background-color:#f5f5f5"]) {
+                    color: var(--dt-on-surface-variant) !important;
+                    background-color: var(--dt-surface-variant) !important;
+                }
+
+                :is(span,
+                b):is([style*="color:black"],
+                [style*="color:rgb(0,0,0)"],
+                [style*="color:#3b3838"]) {
+                    color: var(--dt-on-surface) !important;
+                }
+            }
+
+            /* mail separator */
+            .bh > .adv > .Bk::after,
+            .hx .h7 .Bk .G2 {
+                border-color: var(--dt-surface-variant);
+            }
+
+            /* READER ATTACHMENTS */
+            .gmail_chip.gmail_drive_chip {
+                background-color: var(--dt-surface-container);
+                border-color: var(--dt-outline-container);
+            }
+            .gmail_chip.gmail_drive_chip > a {
+                color: var(--dt-on-surface);
+            }
+            .aSG {
+                background-color: var(--dt-background);
             }
         }
     }
@@ -284,221 +495,6 @@
         }
     }
 
-    /* INBOX MIDDLE */
-    #\:1 {
-        .TD,
-        .r4,
-        .alO,
-        .iY,
-        .yO,
-        .aC2,
-        .aC3 {
-            background-color: var(--dt-surface);
-        }
-
-        .zE,
-        .Ze {
-            color: var(--dt-on-surface);
-            background-color: var(--dt-surface-bright);
-        }
-        .yO {
-            color: var(--dt-on-surface);
-        }
-        .bx0,
-        .y2,
-        .Zt,
-        .g6,
-        .hI .g3,
-        .brg {
-            color: var(--dt-on-surface-secondary);
-        }
-        .bzO {
-            color: var(--dt-on-secondary-container);
-        }
-        .yO > .xW,
-        .brc {
-            color: var(--dt-on-surface);
-        }
-        .xY > .T-Jo {
-            background-image: var(--dt-icon-checkbox-outline-blank);
-        }
-        .xY > .T-Jo-Jp {
-            background-image: var(--dt-icon-checkbox);
-        }
-        td.oZ-x3::before {
-            background-image: var(--dt-icon-drag-indicator-variant);
-        }
-        td.apU > .T-KT.aXw::before {
-            background-image: var(--dt-icon-star);
-        }
-        .brq {
-            background-image: var(--dt-icon-archive);
-        }
-        .bru {
-            background-image: var(--dt-icon-delete);
-        }
-        .brr {
-            background-image: var(--dt-icon-drafts);
-        }
-        .brv {
-            background-image: var(--dt-icon-schedule);
-        }
-        .SHFPQe {
-            background-image: var(--dt-icon-mark-email-unread);
-        }
-        .xL {
-            background-image: var(--dt-icon-today);
-        }
-        .yE {
-            background-image: var(--dt-icon-attachment);
-        }
-    }
-
-    /* INBOX SPAM WARNING */
-    .Tm .ya {
-        color: var(--dt-on-neutral-container);
-        background-color: var(--dt-neutral-container);
-    }
-
-    .byY {
-        background-color: var(--dt-surface);
-        color: var(--dt-on-surface);
-
-        .ha > .hP {
-            color: var(--dt-on-surface);
-        }
-    }
-
-    /* READER */
-    .adn[data-message-id] {
-        color: var(--dt-on-surface);
-        background-color: var(--dt-surface);
-
-        /* sender information */
-        table.gJ {
-            background-color: var(--dt-surface);
-            .gD {
-                color: var(--dt-on-surface);
-            }
-            .ajy > .ajz {
-                background-image: var(--dt-icon-arrow-drop-down-variant);
-            }
-        }
-
-        /* e-mail contents */
-        .a3s {
-            table,
-            tbody,
-            td,
-            .nr {
-                background-color: var(--dt-surface);
-            }
-
-            :is(table,
-            tbody,
-            td)[style*="background:white"] {
-                background-color: var(--dt-surface) !important;
-            }
-            span[style*="color:black"] {
-                color: var(--dt-on-surface) !important;
-            }
-        }
-
-        .ha > .hP,
-        .hx .gD,
-        .hx,
-        .hx td,
-        .gt a,
-        .ac2 {
-            color: var(--dt-on-background) !important;
-        }
-        .aRo,
-        .aU6,
-        .aQ6 > .aQ5,
-        .aQ6 > .aQ4 {
-            color: var(--dt-on-surface);
-        }
-        .bqc.T-I-ax7 {
-            color: var(--dt-on-surface-variant);
-        }
-        .aRn,
-        .aRk,
-        .aQ5 {
-            color: var(--dt-on-surface-secondary);
-        }
-        .aQ6 > .aQ5,
-        .aQ6 > .aQ4 {
-            color: var(--dt-on-surface);
-        }
-        .Tl.T-I-ax7 {
-            color: var(--dt-on-surface-variant);
-        }
-
-        .im {
-            color: var(--dt-on-background);
-            font-weight: bold;
-        }
-        .hx .hb {
-            color: var(--dt-on-surface-secondary);
-        }
-        .iv .g3 {
-            color: var(--dt-on-surface-secondary);
-        }
-        .bAk .bi4 > .T-KT:not(.T-KT-Jp):not(.byM)::before {
-            background-image: var(--dt-icon-star);
-        }
-        .gW {
-            background-image: var(--dt-icon-attachment-variant);
-        }
-        .bAm .hB {
-            background-image: var(--dt-icon-reply);
-        }
-        .bAm .hA {
-            background-image: var(--dt-icon-more-vert);
-        }
-        .J-N-JE .J-N-Jz {
-            color: var(--dt-on-surface-container);
-        }
-        .pYTkkf-JX-I {
-            color: var(--dt-on-surface-variant);
-        }
-        /* signature */
-        .hx div[style*="color:"],
-        .hx font[style*="color:"],
-        .hx span[style*="color:"],
-        .hx p[style*="color:"],
-        .hx .gmail_signature p[style*="color:"],
-        .hx font[color] {
-            color: var(--dt-on-background) !important;
-        }
-        .amn > .ams {
-            color: var(--dt-on-surface-variant);
-        }
-        .amr .amn > .ams {
-            border-color: var(--dt-outline);
-        }
-        .amr .ams.bkH::before {
-            background-image: var(--dt-icon-reply);
-        }
-        .amr .ams.bkI::before {
-            background-image: var(--dt-icon-reply-all);
-        }
-        .amr .ams.bkG::before {
-            background-image: var(--dt-icon-forward);
-        }
-        /* READER ATTACHMENTS */
-        .gmail_chip.gmail_drive_chip {
-            background-color: var(--dt-surface-container);
-            border-color: var(--dt-outline-container);
-        }
-        .gmail_chip.gmail_drive_chip > a {
-            color: var(--dt-on-surface);
-        }
-        .aSG {
-            background-color: var(--dt-background);
-        }
-    }
-
     /* COMPOSER */
     [data-compose-id] > [role="presentation"] {
         form table,
@@ -518,7 +514,9 @@
             border-radius: 0 0 16px 16px;
         }
 
-        .ahe::after {
+        .ahe::after,
+        .aC2,
+        .aC3 {
             background-color: var(--dt-surface);
         }
     }
@@ -849,6 +847,71 @@
         .aqJ .amJ,
         .adg .adk {
             background-image: var(--dt-icon-chevron-right);
+        }
+    }
+
+    /* INBOX MIDDLE: MESSAGE LIST ICONS */
+    #\:1 .bGI[role="main"] table[role="grid"] {
+        .xY > .T-Jo {
+            background-image: var(--dt-icon-checkbox-outline-blank);
+        }
+        .xY > .T-Jo-Jp {
+            background-image: var(--dt-icon-checkbox);
+        }
+        td.oZ-x3::before {
+            background-image: var(--dt-icon-drag-indicator-variant);
+        }
+        td.apU > .T-KT.aXw::before {
+            background-image: var(--dt-icon-star);
+        }
+        .brq {
+            background-image: var(--dt-icon-archive);
+        }
+        .bru {
+            background-image: var(--dt-icon-delete);
+        }
+        .brr {
+            background-image: var(--dt-icon-drafts);
+        }
+        .brv {
+            background-image: var(--dt-icon-schedule);
+        }
+        .SHFPQe {
+            background-image: var(--dt-icon-mark-email-unread);
+        }
+        .xL {
+            background-image: var(--dt-icon-today);
+        }
+        .yE {
+            background-image: var(--dt-icon-attachment);
+        }
+    }
+
+    /* INBOX MIDDLE: READER CHAIN ICONS */
+    #\:1 :not(.bGI)[role="main"] .iY {
+        /* sender information */
+        table.gJ {
+            .ajz {
+                background-image: var(--dt-icon-arrow-drop-down-variant);
+            }
+
+            .gW {
+                background-image: var(--dt-icon-attachment-variant);
+            }
+
+            .T-KT:not(.T-KT-Jp)::before {
+                background-image: var(--dt-icon-star);
+            }
+            .T-KT.T-KT-Jp::before {
+                background-image: var(--dt-icon-star-fill);
+            }
+
+            .hB {
+                background-image: var(--dt-icon-reply);
+            }
+            .hA {
+                background-image: var(--dt-icon-more-vert);
+            }
         }
     }
 
