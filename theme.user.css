@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Gmail dark theme
 @namespace      github.com/openstyles/stylus
-@version        1.1.16
+@version        1.1.17
 @description    Apply tweaks to make Gmail dark theme more similar to Google Drive's dark theme.
 @author         jrom99
 @license        MIT
@@ -19,6 +19,7 @@
 /* TODO: SEARCH BAR: add label icon for search suggestion */
 /* TODO: SEARCH BAR: add looking glass icon for search suggestion */
 /* TODO: SEARCH BAR: fix list item hover color */
+/* TODO: SIDEBAR LEFT: compose button active colors  */
 @-moz-document url-prefix("https://mail.google.com") {
     :root {
         --dt-on-background: #e3e3e3;
@@ -414,38 +415,43 @@
                 background-color: var(--dt-surface);
                 color: var(--dt-on-surface);
 
+                span,
+                table,
+                div,
+                td {
+                    background-color: var(--dt-surface);
+                    color: var(--dt-on-surface);
+                }
+
                 .im {
                     color: var(--dt-on-surface-variant);
                 }
 
                 /* override element-level css */
-                :is(table,
-                tbody,
-                td,
-                span,
-                b,
-                div):is([style*="background:white"],
+                :is([style*="background:white"],
                 [style*="background-color:rgb(255,255,255)"],
                 [style*="background-color:#ffffff"],
+                [style*="background-color:#fff"],
                 [style*="background:#fff"]) {
                     background-color: var(--dt-surface) !important;
                 }
 
-                :is(table,
-                tbody,
-                td,
-                span,
-                b,
-                div):is([style*="background-color:#f5f5f5"]) {
-                    color: var(--dt-on-surface-variant) !important;
-                    background-color: var(--dt-surface-variant) !important;
+                :is([style*="color:black"],
+                [style*="color:rgb(0,0,0)"],
+                [style*="color:#000000"],
+                [style*="color:#3b3838"],
+                [style*="color:rgb(80,80,80)"],
+                [style*="color:rgb(28,28,28)"]) {
+                    color: var(--dt-on-surface) !important;
                 }
 
-                :is(span,
-                b):is([style*="color:black"],
-                [style*="color:rgb(0,0,0)"],
-                [style*="color:#3b3838"]) {
+                div[style*="color:#333"] {
                     color: var(--dt-on-surface) !important;
+                }
+
+                :is([style*="background-color:#f5f5f5"]) {
+                    color: var(--dt-on-surface-variant) !important;
+                    background-color: var(--dt-surface-variant) !important;
                 }
             }
 
@@ -533,35 +539,39 @@
     }
 
     /* SIDEBAR RIGHT */
-    .bAw.bcf {
+    [role="navigation"] + div + div {
         background-color: var(--dt-surface-container-low);
+        .bAw.bcf {
+            background-color: var(--dt-surface-container-low);
 
-        div,
-        .brC-aT5-aOt-Jw.brC-aT5-aOt-Jw.brC-aT5-aOt-Jw {
-            background-color: transparent;
-        }
-
-        #qJTzr > div:nth-child(3) {
-            /* install complements button */
-            background-image: var(--dt-icon-add-large) !important;
-        }
-
-        /* open/close button */
-        .brC-dA-I-Jw {
-            &:not(.brC-aMv-bta):not(.brC-aMv-auO) .brC-dA-I .aT5-aOt-I-JX {
-                fill: var(--dt-on-background);
+            div,
+            .brC-aT5-aOt-Jw.brC-aT5-aOt-Jw.brC-aT5-aOt-Jw {
+                background-color: transparent;
             }
-            .brC-dA-I.aT5-aOt-I-Jp .aT5-aOt-I-JX-atM {
-                background-color: var(--dt-surface-bright);
+
+            #qJTzr > div:nth-child(3) {
+                /* install complements button */
+                background-image: var(--dt-icon-add-large) !important;
             }
-            :where(.brC-dA-I.aT5-aOt-I-Jp.aT5-aOt-I-JW,
-            .aT5-aOt-I-JO,
-            .aT5-aOt-I-JO.aT5-aOt-I-JW,
-            .brC-dA-I.aT5-aOt-I-Jp.aT5-aOt-I-JO) .aT5-aOt-I-JX-atM {
-                background-color: var(--dt-surface-tint);
+
+            /* open/close button */
+            .brC-dA-I-Jw {
+                &:not(.brC-aMv-bta):not(.brC-aMv-auO) .brC-dA-I .aT5-aOt-I-JX {
+                    fill: var(--dt-on-background);
+                }
+                .brC-dA-I.aT5-aOt-I-Jp .aT5-aOt-I-JX-atM {
+                    background-color: var(--dt-surface-bright);
+                }
+                :where(.brC-dA-I.aT5-aOt-I-Jp.aT5-aOt-I-JW,
+                .aT5-aOt-I-JO,
+                .aT5-aOt-I-JO.aT5-aOt-I-JW,
+                .brC-dA-I.aT5-aOt-I-Jp.aT5-aOt-I-JO) .aT5-aOt-I-JX-atM {
+                    background-color: var(--dt-surface-tint);
+                }
             }
         }
     }
+
     /* search filter poupu */
     .ZF-zT {
         background-color: var(--dt-surface-container-high);
